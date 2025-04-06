@@ -97,7 +97,7 @@ export function FilterTransactions({
               <button
                 onClick={() => onSelectFilterDay(day)}
                 key={day}
-                className={`px-4 py-2 w-full lg:min-w-[70px] font-medium h-[44px] grid place-items-center border border-[#EFF1F6] rounded-full text-nowrap hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
+                className={`px-4 py-2 w-full font-medium h-[44px] text-nowrap grid place-items-center border border-[#EFF1F6] rounded-full  hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
                                     ${
                                       selectFilterDay === day
                                         ? "bg-[#EFF1F6]"
