@@ -52,6 +52,8 @@ export function FilterTransactions({
     currentFilters.filterDay
   );
 
+  const disableApplyFilterButton = !dateRange.startDate && !dateRange.endDate && !selectedTypes.length && !selectedStatus.length && !selectFilterDay;
+
   const formatDate = (date: string) => {
     if (!date) return "";
     const [year, month, day] = date.split("-");
@@ -89,13 +91,13 @@ export function FilterTransactions({
     <Modal onClose={onClose} title={"Filter"}>
       <motion.div className="max-w-[456px] relative min-h-[600px] lg:min-h-[calc(100dvh-100px)] w-full bg-white rounded-lg">
         {/* filter days */}
-        <div className="flex flex-wrap gap-2 bg-white mt-5 items-center w-full justify-between px-4">
+        <div className="flex flex-wrap lg:flex-nowrap  gap-2 bg-white mt-5 items-center w-full  justify-between px-4">
           {["Today", "last 7 days", "This month", "Last 3 months"].map(
             (day) => (
               <button
                 onClick={() => onSelectFilterDay(day)}
                 key={day}
-                className={`px-2 py-1 min-w-[70px] font-medium h-[36px] grid place-items-center border border-[#EFF1F6] rounded-full text-nowrap hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
+                className={`px-2 py-1 w-full lg:min-w-[70px] font-medium h-[36px] grid place-items-center border border-[#EFF1F6] rounded-full text-nowrap hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
                                     ${
                                       selectFilterDay === day
                                         ? "bg-[#EFF1F6]"
@@ -111,14 +113,14 @@ export function FilterTransactions({
         {/* date range */}
         <div className="px-4 mt-6">
           <p className="font-medium mb-2">Date Range</p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap w-full items-center gap-3">
             <div className="flex-1">
               <label className="block">
                 <button
                   onClick={() =>
                     setOpenPicker(openPicker === "start" ? null : "start")
                   }
-                  className="text-foreground font-medium text-sm w-[203px] h-[48px] rounded-[12px] active:border-foreground focus:border-foreground focus:border-2 active:border-2 flex items-center justify-around transition-all ease-in-out duration-300 active:bg-white bg-[#EFF1F6]"
+                  className="text-foreground font-medium text-sm w-full lg:w-[203px] h-[48px] rounded-[12px] active:border-foreground focus:border-foreground focus:border-2 active:border-2 flex items-center justify-around transition-all ease-in-out duration-300 active:bg-white bg-[#EFF1F6]"
                 >
                   <p>
                     {" "}
@@ -139,13 +141,13 @@ export function FilterTransactions({
                 selectedDate={dateRange.startDate}
               />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 ">
               <label className="block">
                 <button
                   onClick={() =>
                     setOpenPicker(openPicker === "end" ? null : "end")
                   }
-                  className="text-foreground font-medium text-sm w-[203px] h-[48px] flex items-center justify-around rounded-[12px] active:border-foreground focus:border-foreground focus:border-2 active:border-2 transition-all ease-in-out duration-300 active:bg-white bg-[#EFF1F6]"
+                  className="text-foreground font-medium text-sm w-full lg:w-[203px] h-[48px] flex items-center justify-around rounded-[12px] active:border-foreground focus:border-foreground focus:border-2 active:border-2 transition-all ease-in-out duration-300 active:bg-white bg-[#EFF1F6]"
                 >
                   <p>
                     {" "}
@@ -161,7 +163,7 @@ export function FilterTransactions({
                 onClose={() => setOpenPicker(null)}
                 onSelect={(date) => {
                   setDateRange((prev) => ({ ...prev, endDate: date }));
-                  setSelectFilterDay(""); 
+                  setSelectFilterDay("");
                 }}
                 selectedDate={dateRange.endDate}
               />
@@ -191,7 +193,7 @@ export function FilterTransactions({
           />
         </div>
 
-        <div className="flex items-center justify-around absolute bottom-0 left-0 right-0 px-4 py-4">
+        <div className="flex items-center gap-6 lg:gap-0 justify-around absolute bottom-0 left-0 right-0 px-4 py-4">
           <button
             onClick={handleClearFilter}
             className="bg-white hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-foreground border border-[#EFF1F6] w-[198px] h-[48px] font-medium rounded-full"
@@ -201,7 +203,8 @@ export function FilterTransactions({
 
           <button
             onClick={handleApplyFilter}
-            className="bg-foreground hover:bg-foreground/80 transition-all ease-in-out duration-300 cursor-pointer text-background w-[198px] h-[48px] font-medium rounded-full"
+            disabled={disableApplyFilterButton}
+            className={`bg-foreground hover:bg-foreground/80 transition-all ease-in-out duration-300  text-background w-[198px] h-[48px] font-medium rounded-full ${disableApplyFilterButton ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
           >
             {"Apply"}
           </button>

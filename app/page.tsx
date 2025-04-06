@@ -17,7 +17,7 @@ const Walletbalance = ({ label, value }: { label: string; value: number }) => (
   <div className="flex items-start gap-2 w-full justify-between">
     <div>
       <p className="text-sm text-[#56616B]">{label}</p>
-      <p className="text-[28px] font-bold">
+      <p className="text-[24px] lg:text-[28px] font-bold">
         {"USD "}
         {value?.toLocaleString("en-US", {
           minimumFractionDigits: 2,
@@ -43,28 +43,28 @@ export default function Home() {
   );
 
   return (
-    <div className="max-w-[75rem] mx-auto">
-      <div className="absolute left-8 top-52">
+    <div className="max-w-[75rem] mx-auto px-4 md:px-6">
+      <div className="absolute left-0 md:left-8 top-20 md:top-52">
         <AppBar />
       </div>
 
-      <div className="flex gap-20 pt-10 mb-20">
-        <div className="min-w-3xl">
+      <div className="flex flex-col md:flex-row md:gap-20 pt-10 mb-20">
+        <div className="w-full md:min-w-3xl">
           {isLoadingWallet ? (
             <AvailableBalanceSkeleton />
           ) : (
-            <section className="flex items-center gap-20 mb-8">
+            <section className="flex flex-col md:flex-row md:items-center md:gap-20 gap-4 mb-8">
               <div>
                 <p className="text-sm text-[#56616B]">Available Balance</p>
-                <p className="text-[36px] font-bold">
+                <p className="text-[24px] lg:text-[28px] font-bold">
                   {"USD"}{" "}
                   {walletData?.balance?.toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
-                  })}
+                })}
                 </p>
               </div>
-              <button className="bg-foreground w-[167px] h-[52px] grid place-items-center text-background font-semibold rounded-full">
+              <button className="bg-foreground w-full md:w-[167px] h-[52px] grid place-items-center text-background font-semibold rounded-full">
                 Withdraw
               </button>
             </section>
@@ -72,7 +72,7 @@ export default function Home() {
           {isLoadingTransactions ? <ChartSkeleton /> : <Chart chartData={transactionsData ?? []} />}
         </div>
 
-        <div className="w-[456px] flex flex-col">
+        <div className="w-full md:w-[456px] flex flex-col mt-8 md:mt-0">
           {isLoadingWallet ? (
             <>
               <WalletBalanceSkeleton />
@@ -81,7 +81,7 @@ export default function Home() {
               <WalletBalanceSkeleton />
             </>
           ) : (
-            <div className="flex flex-col gap-13">
+            <div className="flex flex-col gap-8 md:gap-13">
               <Walletbalance
                 label="Ledger Balance"
                 value={walletData?.ledger_balance ?? 0}

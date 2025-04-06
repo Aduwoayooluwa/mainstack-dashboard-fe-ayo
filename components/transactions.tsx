@@ -183,23 +183,23 @@ export default function Transactions({ data }: { data: Transaction[] }) {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-0 justify-between">
         <div className="flex flex-col leading-none">
-          <p className="text-[24px] font-semibold text-foreground">
+          <p className="text-[20px] md:text-[24px] font-semibold text-foreground">
             {filteredTransactions.length} transactions
           </p>
           <p className="text-sm text-[#56616B]">
             {getDateRangeText()}
           </p>
         </div>
-
-        <div className="flex gap-2">
-          <button onClick={onOpenFilterModal} className="bg-[#EFF1F6] text-foreground font-semibold rounded-full w-fit min-w-[107px] h-[48px] flex items-center justify-center gap-2 px-4">
-            {"Filter"} {getActiveFiltersCount() > 0 && (<span className=" text-background w-[20px] h-[20px] bg-foreground font-medium rounded-full text-xs grid place-items-center">{getActiveFiltersCount()}</span>)}
+ 
+        <div className="flex gap-2 justify-between w-full lg:w-fit">
+          <button onClick={onOpenFilterModal} className="bg-[#EFF1F6] text-foreground font-semibold rounded-full w-[48%] lg:w-fit lg:min-w-[107px] h-[48px] flex items-center justify-center gap-2 px-4">
+            {"Filter"} {getActiveFiltersCount() > 0 && (<span className="text-background w-[20px] h-[20px] bg-foreground font-medium rounded-full text-xs grid place-items-center">{getActiveFiltersCount()}</span>)}
             <Image src={ExpandMoreIcon} alt="expand more" />
           </button>
 
-          <button className="bg-[#EFF1F6] text-foreground font-semibold rounded-full w-[107px] h-[48px] flex items-center justify-center gap-2">
+          <button className="bg-[#EFF1F6] text-foreground font-semibold rounded-full w-[48%] lg:w-[107px] h-[48px] flex items-center justify-center gap-2">
             {"Export"}
             <Image src={DownloadIcon} alt="download" />
           </button>

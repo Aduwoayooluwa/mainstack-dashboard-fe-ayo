@@ -28,7 +28,7 @@ export function Modal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-end bg-black/40 pr-5 bg-opacity-50"
+          className="fixed inset-0 z-50 flex items-center justify-end bg-black/40 px-5 lg:px-0 lg:pr-5 bg-opacity-50"
           onClick={handleClose}
           data-testid="modal-background"
         >

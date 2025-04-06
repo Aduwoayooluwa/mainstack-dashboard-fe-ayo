@@ -17,7 +17,7 @@ export default function AppProvider({
      <div className="w-full grid place-items-center">
      <Header />
      </div>
-     <div className="max-w-7xl mx-auto py-6 mt-20">
+     <div className="max-w-7xl mx-auto py-6 mt-10 lg:mt-20">
      {children}
      </div>
       </div>
