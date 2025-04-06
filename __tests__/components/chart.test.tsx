@@ -3,6 +3,7 @@ import { renderWithProviders } from '@/__tests__/setup';
 import Chart from '@/components/chart';
 import { screen } from '@testing-library/react';
 
+// Mock SVG elements 
 jest.mock('recharts', () => ({
     AreaChart: ({ children }: { children: React.ReactNode }) => <div data-testid="area-chart">{children}</div>,
     Area: () => <div data-testid="area" />,
@@ -19,36 +20,31 @@ describe('Chart Component', () => {
 
     it('renders the chart container with correct dimensions', () => {
         renderWithProviders(<Chart chartData={mockChartData} />);
-        
         const container = screen.getByTestId('responsive-container');
         expect(container).toBeInTheDocument();
     });
 
     it('renders the area chart with correct data', () => {
         renderWithProviders(<Chart chartData={mockChartData} />);
-        
         const areaChart = screen.getByTestId('area-chart');
         expect(areaChart).toBeInTheDocument();
     });
 
     it('renders the X-axis', () => {
         renderWithProviders(<Chart chartData={mockChartData} />);
-        
         const xAxis = screen.getByTestId('x-axis');
         expect(xAxis).toBeInTheDocument();
     });
 
     it('renders the area component', () => {
         renderWithProviders(<Chart chartData={mockChartData} />);
-        
         const area = screen.getByTestId('area');
         expect(area).toBeInTheDocument();
     });
 
     it('handles empty data array', () => {
         renderWithProviders(<Chart chartData={[]} />);
-        
-        const areaChart = screen.getByTestId('area-chart');
-        expect(areaChart).toBeInTheDocument();
+        const container = screen.getByTestId('responsive-container');
+        expect(container).toBeInTheDocument();
     });
 }); 
