@@ -61,7 +61,6 @@ export function DatePicker({
   };
 
   const formatDateString = (year: number, month: number, day: number) => {
-    // Add 1 to month since JavaScript months are 0-based
     const monthStr = String(month + 1).padStart(2, "0");
     const dayStr = String(day).padStart(2, "0");
     return `${year}-${monthStr}-${dayStr}`;

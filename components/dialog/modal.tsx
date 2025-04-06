@@ -30,6 +30,7 @@ export function Modal({
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-end bg-black/40 pr-5 bg-opacity-50"
           onClick={handleClose}
+          data-testid="modal-background"
         >
           <motion.div
             initial={{ x: "100%" }}
@@ -48,6 +49,7 @@ export function Modal({
               <button
                 className="cursor-pointer hover:opacity-70 transition-opacity"
                 onClick={handleClose}
+                aria-label="close"
               >
                 <Image src={CloseIcon} alt="close" />
               </button>
