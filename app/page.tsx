@@ -72,7 +72,7 @@ export default function Home() {
           {isLoadingTransactions ? <ChartSkeleton /> : <Chart chartData={transactionsData ?? []} />}
         </div>
 
-        <div className="w-[456px] flex flex-col gap-10">
+        <div className="w-[456px] flex flex-col">
           {isLoadingWallet ? (
             <>
               <WalletBalanceSkeleton />
@@ -81,7 +81,7 @@ export default function Home() {
               <WalletBalanceSkeleton />
             </>
           ) : (
-            <>
+            <div className="flex flex-col gap-13">
               <Walletbalance
                 label="Ledger Balance"
                 value={walletData?.ledger_balance ?? 0}
@@ -98,7 +98,7 @@ export default function Home() {
                 label="Pending Payout"
                 value={walletData?.pending_payout ?? 0}
               />
-            </>
+            </div>
           )}
         </div>
       </div>
