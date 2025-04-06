@@ -2,17 +2,17 @@ import { Skeleton } from "../ui/skeleton";
 
 export function TransactionSkeleton() {
     return (
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 p-4">
             <div className="flex items-center gap-4">
-                <Skeleton className="w-[48px] h-[48px] rounded-full" />
+                <Skeleton className="w-12 h-12 md:w-[48px] md:h-[48px] rounded-full" />
                 <div>
-                    <Skeleton className="h-4 w-32 mb-2" />
-                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-4 w-24 md:w-32 mb-2" />
+                    <Skeleton className="h-4 w-20 md:w-24" />
                 </div>
             </div>
             <div>
-                <Skeleton className="h-5 w-24 mb-2" />
-                <Skeleton className="h-4 w-32" />
+                <Skeleton className="h-5 w-20 md:w-24 mb-2" />
+                <Skeleton className="h-4 w-24 md:w-32" />
             </div>
         </div>
     );

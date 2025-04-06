@@ -105,7 +105,7 @@ export default function Header() {
 
       {/* Mobile menu button */}
       <button 
-        className="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#EFF1F6] transition-colors"
+        className="md:hidden flex items-center justify-center w-12 h-12 rounded-full hover:bg-[#EFF1F6] transition-colors"
         onClick={handleMobileMenuClick}
       >
         <Image src={MenuIcon} alt="menu" />
@@ -166,11 +166,11 @@ export default function Header() {
         <div 
           className="absolute top-full left-0 w-full mt-2 bg-white rounded-[20px] shadow-lg p-4 md:hidden"
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             {headerItems.slice(0, 4).map((item) => (
               <Link
                 href={item?.href || ""}
-                className={`flex items-center gap-2 p-3 rounded-lg font-semibold text-[16px] ${
+                className={`flex items-center gap-2 p-4 rounded-lg font-semibold text-[16px] ${
                   item.label === "Revenue"
                     ? "bg-foreground text-background"
                     : "bg-background text-[#56616B] hover:bg-[#EFF1F6] transition-colors duration-300"
@@ -185,7 +185,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={handleAppsClick}
-                className={`flex items-center gap-2 p-3 rounded-lg font-semibold text-[16px] w-full ${
+                className={`flex items-center gap-2 p-4 rounded-lg font-semibold text-[16px] w-full ${
                   showAppsMenu
                     ? "bg-foreground text-background"
                     : "bg-background text-[#56616B] hover:bg-[#EFF1F6] transition-colors duration-300"

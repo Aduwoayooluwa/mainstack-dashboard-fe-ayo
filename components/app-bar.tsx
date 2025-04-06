@@ -45,7 +45,7 @@ function Tooltip({ children, content }: { children: React.ReactNode; content: { 
 
 export default function AppBar() {
     return (
-        <div className="fixed left-6 top-1/2 -translate-y-1/2 z-50">
+        <div className="fixed hidden lg:block left-6 top-1/2 -translate-y-1/2 z-50">
             <div className="flex flex-col gap-4 bg-white rounded-full p-1 shadow-lg">
                 {appButtons.map((button, index) => (
                     <Tooltip key={index} content={{ title: button.title, description: button.description }}>

@@ -91,13 +91,13 @@ export function FilterTransactions({
     <Modal onClose={onClose} title={"Filter"}>
       <motion.div className="max-w-[456px] relative min-h-[600px] lg:min-h-[calc(100dvh-100px)] w-full bg-white rounded-lg">
         {/* filter days */}
-        <div className="flex flex-wrap lg:flex-nowrap  gap-2 bg-white mt-5 items-center w-full  justify-between px-4">
+        <div className="flex flex-wrap lg:flex-nowrap gap-3 bg-white mt-5 items-center w-full justify-between px-4">
           {["Today", "last 7 days", "This month", "Last 3 months"].map(
             (day) => (
               <button
                 onClick={() => onSelectFilterDay(day)}
                 key={day}
-                className={`px-2 py-1 w-full lg:min-w-[70px] font-medium h-[36px] grid place-items-center border border-[#EFF1F6] rounded-full text-nowrap hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
+                className={`px-4 py-2 w-full lg:min-w-[70px] font-medium h-[44px] grid place-items-center border border-[#EFF1F6] rounded-full text-nowrap hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-sm
                                     ${
                                       selectFilterDay === day
                                         ? "bg-[#EFF1F6]"
@@ -193,10 +193,10 @@ export function FilterTransactions({
           />
         </div>
 
-        <div className="flex items-center gap-6 lg:gap-0 justify-around absolute bottom-0 left-0 right-0 px-4 py-4">
+        <div className="flex items-center gap-6 lg:gap-0 justify-around absolute bottom-0 left-0 right-0 px-4 py-6">
           <button
             onClick={handleClearFilter}
-            className="bg-white hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-foreground border border-[#EFF1F6] w-[198px] h-[48px] font-medium rounded-full"
+            className="bg-white hover:bg-[#EFF1F6] transition-all ease-in-out duration-300 cursor-pointer text-foreground border border-[#EFF1F6] w-[198px] h-[52px] font-medium rounded-full"
           >
             {"Clear"}
           </button>
@@ -204,7 +204,7 @@ export function FilterTransactions({
           <button
             onClick={handleApplyFilter}
             disabled={disableApplyFilterButton}
-            className={`bg-foreground hover:bg-foreground/80 transition-all ease-in-out duration-300  text-background w-[198px] h-[48px] font-medium rounded-full ${disableApplyFilterButton ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+            className={`bg-foreground hover:bg-foreground/80 transition-all ease-in-out duration-300 text-background w-[198px] h-[52px] font-medium rounded-full ${disableApplyFilterButton ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
           >
             {"Apply"}
           </button>
